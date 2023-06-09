@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Amount</p>
+    <input type="text" id="amount">
+
+    <p>From Currency</p>
+    <select name="" id="from_currency">
+        <option value="Vietnam">Vietnam</option>
+    </select>
+
+    <p>To Currency</p>
+    <select name="" id="to_currency">
+        <option value="USD">USD</option>
+        <option value="Yên Nhật">Yên Nhật</option>
+    </select>
+    
+    <button type="submit" style="margin-left: 20px;" onclick="convert()">Convert</button>
+    
+    <p id="result" style="color: red;"></p>
+</body>
+</html>
+<script>
+    function convert() {
+        let a = +document.getElementById("amount").value;
+        let from = document.getElementById("from_currency").value;
+        let to = document.getElementById("to_currency").value;
+    
+        let Dolaviet = a / 23000;
+        let Yenviet = a / 168;
+
+        if (isNaN(a) || a < 0) {
+            alert("Bạn đã nhập sai dữ liệu");
+        } else {
+            switch (from) {
+                case "Vietnam":
+                    switch (to) {
+                        case "USD":
+                            document.getElementById("result").innerText = "Result: " + Dolaviet;
+                            break;
+                        case "Yên Nhật":
+                            document.getElementById("result").innerText = "Result: " + Yenviet;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+        
+                default:
+                    break;
+            }
+        }
+    }
+    
+</script>
